@@ -1,6 +1,15 @@
 <div class="container mx-auto">
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
 
+    <div class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto p-4 mb-6">
+        <form action="">
+            <div>
+                <label for="name"></label>
+                <input id="name">
+            </div>
+        </form>
+    </div>
+
     <table class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto">
         <thead class="bg-gray-50 border-b border-gray-200">
             <tr class="text-xs font-medium text-gray-500 uppercase text-left tracking-wider">
@@ -17,7 +26,7 @@
                     <td class="px-6 py-4">{{ $post->name }}</td>
                     <td class="px-6 py-4">{{ $post->body }}</td>
                     <td class="px-6 py-4">
-                        <button class="bg-blue-500 hover:bg-blue-700  mb-2 text-white font-bold px4 py-2 rounded w-full">Editar</button>
+                        <button class="bg-blue-500 hover:bg-blue-700 mb-2 text-white font-bold px4 py-2 rounded w-full">Editar</button>
                         <button class="bg-red-500 hover:bg-red-700 text-white font-bold px4 py-2 rounded">Eliminar</button>
                     </td>
                 </tr>
