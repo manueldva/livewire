@@ -4,7 +4,7 @@
     <div class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto p-4 mb-6">
         <form action="">
             <div>
-                <label for="name"></label>
+                <label for="name" class="form-label">Nombre</label>
                 <input id="name">
             </div>
         </form>

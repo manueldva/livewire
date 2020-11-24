@@ -1,3 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+.form-label{
+    @apply block uppercase text-gray-700 text-xs font-bold;
+}
