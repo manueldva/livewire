@@ -1,8 +1,18 @@
 <div class="container mx-auto">
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
 
-    <div class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto p-4 mb-6">
 
+ 
+
+    <div class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto p-4 mb-6">
+        <div>
+            @if (session()->has('message'))
+                <div  class="mb-10 bg-green-200 md:bg-green-200 lg:bg-green-200 border-b py-5 rounded">
+                    <p class="text-xl text-center">{{ session('message') }}</p>
+                    
+                </div>
+            @endif
+        </div>
         <div class="mb-3">
             <label for="name" class="form-label mb-2">Nombre</label>
             <input wire:model="name" id="name" placeholder="Ingrese un nombre" class="form-control">

@@ -44,6 +44,8 @@ class PostComponet extends Component
     	]);
 
     	$this->reset(['name','body']);
+
+    	session()->flash('message', 'Post creado correctamente.');
     	
     }
 
@@ -67,6 +69,8 @@ class PostComponet extends Component
     	]);
 
     	$this->reset(['name','body','post_id','accion']);
+
+    	 session()->flash('message', 'Post actualizado correctamente.');
     }
 
     public function default(){
