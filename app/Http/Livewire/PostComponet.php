@@ -6,20 +6,37 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 
+use Livewire\WithPagination;
+
 class PostComponet extends Component
 {
+
+	use WithPagination;
     
 	public $name, $body, $post_id;
 
 	public $accion="store";
 
+	protected $rules = [
+		'name'=> 'required',
+		'body'=> 'required'
+	];
+
+	protected $messages = [
+		'name.required'=> 'El campo nombre no puede estar vacio',
+		'body.required'=> 'El campo body no puede estar vacio'
+	];
+
+
     public function render()
     {
-        $posts = Post::latest('id')->paginate();
+        $posts = Post::latest('id')->paginate(10);
         return view('livewire.post-componet', compact('posts'));
     }
 
     public function store() {
+
+    	$this->validate();
 
     	Post::create([
     		'name'=> $this->name,
@@ -41,6 +58,8 @@ class PostComponet extends Component
 
     public function update(){
 
+    	$this->validate();
+    	
     	$post = Post::find($this->post_id);
     	$post->update([
     		'name'=> $this->name,
