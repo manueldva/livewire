@@ -12,7 +12,12 @@
             <textarea wire:model="body" id="body" rows="4" class="form-control" placeholder="Ingrese la descripcion del post"></textarea>
         </div>
 
-        <button wire:click="store" class="form-btn"> Crear Post </button>
+        @if( $accion == 'store')
+            <button wire:click="store" class="form-btn"> Crear Post </button>
+        @else
+            <button wire:click="update" class="form-btn"> Editar Post </button>
+            <button wire:click="default" class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 py-2 rounded">Cancelar</button>
+        @endif
 
     </div>
 
@@ -32,8 +37,8 @@
                     <td class="px-6 py-4">{{ $post->name }}</td>
                     <td class="px-6 py-4">{{ $post->body }}</td>
                     <td class="px-6 py-4">
-                        <button class="form-btn mb-2 w-full">Editar</button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 py-2 rounded">Eliminar</button>
+                        <button wire:click="edit({{ $post }})" class="form-btn mb-2 w-full">Editar</button>
+                        <button wire:click="destroy({{ $post }})" class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 py-2 rounded">Eliminar</button>
                     </td>
                 </tr>
             @endforeach
