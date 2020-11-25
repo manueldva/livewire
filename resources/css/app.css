@@ -6,3 +6,19 @@
 .form-label{
     @apply block uppercase text-gray-700 text-xs font-bold;
 }
+
+.form-control {
+	@apply block w-full bg-gray-200 px-4 py-3 rounded text-gray-700 border border-gray-200;
+}
+
+.form-control:focus {
+	@apply bg-white outline-none border-green-500;
+}
+
+.form-btn {
+	@apply bg-blue-500 text-white font-bold  px-4 py-2 rounded;
+}
+
+.form-btn:hover {
+	@apply bg-blue-700;
+}
