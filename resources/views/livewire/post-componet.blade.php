@@ -1,8 +1,8 @@
+
 <div class="container mx-auto">
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
 
 
- 
 
     <div class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto p-4 mb-6">
         <div>

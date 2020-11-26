@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\PostComponet;
+use App\Http\Livewire\Home;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,10 @@ use App\Http\Livewire\PostComponet;
 |
 */
 
-Route::get('/', PostComponet::class);
+Route::get('/', Home::class);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('posts', PostComponet::class);
+
+//Route::get('posts', PostComponet::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/', Home::class);
