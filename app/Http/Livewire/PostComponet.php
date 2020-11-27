@@ -15,7 +15,8 @@ class PostComponet extends Component
     
 	public $name, $body, $post_id;
 
-	public $accion="store";
+    public $isOpen = 0;
+
 
 	protected $rules = [
 		'name'=> 'required',
@@ -31,21 +32,43 @@ class PostComponet extends Component
     public function render()
     {
         $posts = Post::latest('id')->paginate(10);
-        return view('livewire.post-componet', compact('posts'));
+        return view('livewire.posts.post-componet', compact('posts'));
     }
+
+
+    public function create()
+    {
+        $this->reset(['name','body','post_id']);
+        $this->openModal();
+    }
+
+    public function openModal()
+    {
+        $this->isOpen = true;
+    }
+
+    public function closeModal()
+    {
+        $this->isOpen = false;
+    }
+
+
 
     public function store() {
 
     	$this->validate();
 
-    	Post::create([
-    		'name'=> $this->name,
-    		'body'=> $this->body
-    	]);
-
-    	$this->reset(['name','body']);
-
-    	session()->flash('message', 'Post creado correctamente.');
+    	
+        Post::updateOrCreate(['id' => $this->post_id], [
+            'name' => $this->name,
+            'body' => $this->body
+        ]);
+  
+        session()->flash('message', 
+            $this->post_id ? 'Post actualizado correctamente.' : 'Post creado correctamente.');
+  
+        $this->closeModal();
+        $this->reset(['name','body','post_id']);
     	
     }
 
@@ -54,34 +77,16 @@ class PostComponet extends Component
     	$this->name= $post->name;
     	$this->body= $post->body;
     	$this->post_id= $post->id;
-    	$this->accion = "update";
+
+        $this->openModal();
     }
 
 
-    public function update(){
-
-    	$this->validate();
-    	
-    	$post = Post::find($this->post_id);
-    	$post->update([
-    		'name'=> $this->name,
-    		'body'=> $this->body
-    	]);
-
-    	$this->reset(['name','body','post_id','accion']);
-
-    	 session()->flash('message', 'Post actualizado correctamente.');
-    }
-
-    public function default(){
-
-    	$this->reset(['name','body','post_id','accion']);
-    }
-
-
+  
     public function destroy(post $post){
 
     	$post->delete();
-    	$this->reset(['name','body','post_id','accion']);
+    	$this->reset(['name','body','post_id']);
+        session()->flash('message', 'Post eliminado correctamente.');
     }
 }
