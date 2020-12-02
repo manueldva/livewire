@@ -20,7 +20,7 @@
                 </div>
             @endif
             <button wire:click="create()" class="form-btn"> Registrar Cliente</button>
-             @if($isOpen)
+            @if($isOpen)
                 @include('livewire.clients.create')
             @endif
         </div>
@@ -31,7 +31,7 @@
                         <th class="px-4 py-2 w-20">ID</th>
                         <th class="px-4 py-2">Nombre</th>
                         <th class="px-4 py-2">Direccion</th>
-                        <th class="px-4 py-2">Accion</th>
+                        <th class="px-4 py-2">Acción</th>
                     </tr>
                 </thead>
                 <tbody>

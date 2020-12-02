@@ -13,23 +13,24 @@ class ClientComponet extends Component
 
 	use WithPagination;
     
-	public $name, $address, $cellPhone, $phone, $email, $client_id;
-
+    public $name, $address, $cellPhone, $phone, $email, $client_id;
+    
     public $isOpen = 0;
 
 
 	protected $rules = [
 		'name'=> 'required',
         'address'=> 'required',
-        'cellPhone'=> 'required',
-        'phone'=> 'required'
+        'cellPhone'=> 'required|integer',
+        'phone'=> 'integer'
 	];
 
 	protected $messages = [
 		'name.required'=> 'El campo nombre no puede estar vacio',
         'address.required'=> 'El campo direccion no puede estar vacio',
         'cellPhone.required'=> 'El campo celular no puede estar vacio',
-        'phone.required'=> 'El campo telefono no puede estar vacio'
+        'cellPhone.integer'=> 'El celular debe ser un número entero.',
+        'phone.integer'=> 'El telefono phone debe ser un número entero.',
 	];
 
 
