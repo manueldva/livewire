@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\PostComponet;
+use App\Http\Livewire\ClientComponet;
 use App\Http\Livewire\Home;
 
 /*
@@ -17,7 +17,7 @@ use App\Http\Livewire\Home;
 
 Route::get('/', Home::class);
 
-Route::get('posts', PostComponet::class);
+Route::get('clients', ClientComponet::class);
 
 //Route::get('posts', PostComponet::class);
 
