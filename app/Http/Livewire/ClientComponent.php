@@ -8,7 +8,7 @@ use App\Models\Client;
 
 use Livewire\WithPagination;
 
-class ClientComponet extends Component
+class ClientComponent extends Component
 {
 
     use WithPagination;
