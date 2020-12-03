@@ -11,9 +11,19 @@ use Livewire\WithPagination;
 class ClientComponet extends Component
 {
 
-	use WithPagination;
+    use WithPagination;
+    
+    public $search = '';
+    public $type = 'name';
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     
     public $name, $address, $cellPhone, $phone, $email, $client_id;
+
     
     public $isOpen = 0;
 
@@ -36,7 +46,7 @@ class ClientComponet extends Component
 
     public function render()
     {
-        $clients = Client::latest('id')->paginate(10);
+        $clients = Client::latest('id')->where($this->type ,'like', '%' . $this->search . '%')->paginate(5);
         return view('livewire.clients.client-componet', compact('clients'));
     }
 
