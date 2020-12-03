@@ -42,7 +42,7 @@
                         <th class="px-4 py-2">Nombre</th>
                         <th class="px-4 py-2">Direccion</th>
                         <th class="px-4 py-2">Celular</th>
-                        <th class="px-4 py-2 w-50">Acción</th>
+                        <th class="px-4 py-2 mx-auto"></th>
                     </tr>
                 </thead>
                 <tbody>
