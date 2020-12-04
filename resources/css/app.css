@@ -22,3 +22,7 @@
 .form-btn:hover {
 	@apply bg-blue-700;
 }
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
