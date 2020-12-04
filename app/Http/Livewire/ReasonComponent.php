@@ -25,11 +25,12 @@ class ReasonComponent extends Component
     public $isOpen = 0;
 
     protected $rules = [
-		'description'=> 'required',
+		'description'=> 'required|max:256',
 	];
 
 	protected $messages = [
-		'name.required'=> 'El campo descripcion no puede estar vacio'
+        'description.required'=> 'El campo descripcion no puede estar vacio',
+        'description.max'=> 'El campo descripcion no debe contener más de 256 caracteres.'
 	];
 
 
