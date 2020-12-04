@@ -53,6 +53,8 @@ class ReasonComponent extends Component
 
     public function closeModal()
     {
+        $this->resetErrorBag();
+        $this->resetValidation();
         $this->isOpen = false;
     }
 
