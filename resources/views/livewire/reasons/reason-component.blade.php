@@ -20,7 +20,7 @@
                </div>
            @endif
            <div class="mx-auto">
-               <button wire:click="create()" class="form-btn "> Registrar Razon</button>
+               <button wire:click="create()" class="form-btn"> Registrar Razon</button>
                <select class="border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="type">
                    <option value="name">Seleccionar</option>
                    <option value="id">Codigo</option>

@@ -42,7 +42,7 @@ class ReasonComponent extends Component
 
     public function create()
     {
-        $this->reset(['description' ,'client_id']);
+        $this->reset(['description' ,'reason_id']);
         $this->openModal();
     }
 
@@ -54,6 +54,40 @@ class ReasonComponent extends Component
     public function closeModal()
     {
         $this->isOpen = false;
+    }
+
+
+    public function store() {
+
+    	$this->validate();
+
+    	
+        Reason::updateOrCreate(['id' => $this->reason_id], [
+            'description' => $this->description
+        ]);
+  
+        session()->flash('message', 
+            $this->reason_id ? 'Cliente actualizado correctamente.' : 'Cliente creado correctamente.');
+  
+        $this->closeModal();
+        $this->reset(['description','reason_id']);
+    	
+    }
+
+    public function edit(reason $reason){
+
+    	$this->description= $reason->description;
+        
+        $this->openModal();
+    }
+
+
+  
+    public function destroy(reason $reason){
+
+    	$reason->delete();
+    	$this->reset(['description','reason_id']);
+        session()->flash('message', 'Razon eliminado correctamente.');
     }
 
 }
