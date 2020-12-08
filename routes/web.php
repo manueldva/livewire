@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ClientComponent;
-use App\Http\Livewire\Reasoncomponent;
+use App\Http\Livewire\ReasonComponent;
 use App\Http\Livewire\Home;
 
 /*
@@ -19,7 +19,7 @@ use App\Http\Livewire\Home;
 Route::get('/', Home::class);
 
 Route::get('clients', ClientComponent::class);
-Route::get('reasons', Reasoncomponent::class);
+Route::get('reasons', ReasonComponent::class);
 
 //Route::get('posts', PostComponet::class);
 
